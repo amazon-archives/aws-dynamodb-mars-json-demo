@@ -1,0 +1,28 @@
+div(ng-controller="SideMenuCtrl" ng-init="initSidr()"
+    ng-include="'views/partials/sidemenu.html'" )
+
+
+.col-md-8.col-md-offset-2
+    h1 {{title}}
+    blockquote
+        p {{description}}
+
+    #links
+        ul
+            li(ng-repeat="photo in photos track by photo.imageid" style="list-style: none;")
+                a(href="{{photo.url}}" title="{{photo.imageid}}" data-gallery)
+                    //img(style="width:500px;" ng-src="{{photo.url}}")
+                    img(style="width:500px;" ng-src="http://s3.amazonaws.com/aws-dynamodb-mars-json-demo/thumbnails/{{photo.imageid}}.jpg")                    
+                h3.pull-right(ng-show="photo.votes > 0") {{photo.votes}} votes
+
+// The Bootstrap Image Gallery lightbox, should be a child element of the document body
+#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls(data-use-bootstrap-modal="false")
+    // The container for the modal slides
+    .slides
+    // Controls for the borderless lightbox
+    h3.title
+    a.prev
+    a.next
+    a.close
+    a.play-pause
+    ol.indicator

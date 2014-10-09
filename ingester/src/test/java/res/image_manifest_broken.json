@@ -1,0 +1,18 @@
+{
+  "type": "mer-images-manifest-1.0",
+  "latest_sol": 3760,
+  "num_images": 139326,
+  "most_recent_image": "2014-08-22T18:10:49.793Z",
+  "last_manifest_update": "2014-08-22T19:06:50.000Z",
+  "sols": [
+    {
+      "sol": 1,
+      "num_images": 150,
+      "most_recent_image": "2004-01-30T08:11:15.222Z",
+      "last_manifest_update": "2013-12-05T20:37:00.000Z",
+      "url": "http://merpublic.s3.amazonaws.com/oss/merb/images/images_sol1.json"
+    },
+    {
+      "sol": 2,
+      "num_images": 280,
+      "most_recent_image": "2004-02-01T22:51:30.251Z",

@@ -1,0 +1,11 @@
+{
+	"MERA": {
+		"image_manifest": "https://merpublic.s3.amazonaws.com/oss/mera/images/image_manifest.json"
+	},
+	"MERB": {
+		
+	},
+	 "MSL": 
+		{"image_manifest": "https://msl-raws.s3.amazonaws.com/images/image_manifest.json"
+	}
+}

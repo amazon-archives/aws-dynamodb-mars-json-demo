@@ -1,0 +1,36 @@
+div(ng-controller="SideMenuCtrl" ng-include="'views/partials/sidemenu.html'")
+
+ul.timeline
+  li.timeline-item(ng-repeat="photo in photos" ng-class-even="'timeline-inverted'")
+    .timeline-badge
+      i.fa.fa-camera
+    .timeline-date
+      p {{photo.time.creation_time}}      
+    .timeline-panel
+      .timeline-title
+        h4 {{photo.imageid}}
+        p {{photo.time.creation_time}}
+      .timeline-body(id="{{photo.imageid}}")
+        a.mars-photos(href="{{photo.url}}" title="{{photo.imageid}}" data-gallery)
+          img.img-responsive.fill-parent(ng-src="{{photo.url}}")
+        p.description 
+          | Image from the rover's {{instrumentList[photo.instrument].name}} during 
+          | mission {{photo.mission ? photo.mission : mission}}. It was taken at
+          | {{photo.time.creation_time}} and received on Earth
+          | {{photo.time.received_in}} later.
+        br
+        h4.pull-left # of votes: {{photo.votes ? photo.votes : 0}}
+        a.clickable.pull-right(ng-click="vote(photo)")
+          span.glyphicon.glyphicon-2x.glyphicon-thumbs-up
+
+// The Bootstrap Image Gallery lightbox, should be a child element of the document body
+#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls(data-use-bootstrap-modal="false")
+    // The container for the modal slides
+    .slides
+    // Controls for the borderless lightbox
+    h3.title
+    a.prev
+    a.next
+    a.close
+    a.play-pause
+    ol.indicator

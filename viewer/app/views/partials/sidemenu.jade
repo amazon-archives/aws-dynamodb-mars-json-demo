@@ -1,0 +1,37 @@
+nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+	.container-fluid
+		.navbar-header
+			a.navbar-brand(href="/#/") MSL Image Explorer
+		ul.nav.navbar-nav.navbar-right
+			li.active
+				a#sidemenu.clickable(ng-click="openSidr()") Mission Control
+
+#sidr(ng-show="isSidrInitialized")
+	ul
+		li
+			#close-sidemenu.clickable(ng-click="closeSidr()")
+				span.pull-right &times;
+				span Mission Control
+		li
+			a.sidemenu-link(href="/#/timeline/{{instrument}}/{{time}}") Timeline
+			ul#datepicker(ng-show="showDatePicker")
+				li
+					span
+						.input-append.date.datepicker(data-orientation="left" data-autoclose="true")
+							input(type="text" data-orientation="left" data-autoclose="true")
+							span.add-on
+								i.icon-th
+
+		li
+			a.sidemenu-link(href="/#/topVoted/{{instrument}}") Top Voted
+		li
+			a.sidemenu-link(href="/#/favorites") My Favorites
+		li
+			span.clickable(ng-click="showRoverDetails()") Select Instrument
+			ul
+				li
+					span(ng-hide="showInstrumentList") Current: {{instrumentList[instrument].name}}
+			ul#instrumentList(ng-show="showInstrumentList")
+				li(ng-repeat="instrument in instrumentList" ng-class="{active: isActive(instrument)}"
+					ng-click="setInstrument(instrument.id, $event)")
+					span.clickable {{instrument.name}}
