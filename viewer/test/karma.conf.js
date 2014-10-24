@@ -25,7 +25,6 @@ module.exports = function(config) {
        // bower:js
        'bower_components/jquery/dist/jquery.js',
        'bower_components/es5-shim/es5-shim.js',
-       'bower_components/aws-sdk/dist/aws-sdk.js',
        'bower_components/angular/angular.js',
        'bower_components/json3/lib/json3.js',
        'bower_components/angular-resource/angular-resource.js',
@@ -45,6 +44,7 @@ module.exports = function(config) {
        'bower_components/blueimp-gallery/js/blueimp-gallery-youtube.js',
        'bower_components/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.js',
        'bower_components/moment/moment.js',
+       'bower_components/aws-sdk/dist/aws-sdk.js',
        'bower_components/angular-mocks/angular-mocks.js',
        // endbower
        'app/scripts/**/*.js',

@@ -1,5 +1,5 @@
 AWS = require('aws-sdk')
-DOC = require('../app/scripts/dynamodb-doc/dynamodb-doc')
+DOC = require('dynamodb-doc')
 nconf = require('./mynconf')
 
 AWS.config.credentials = new AWS.Credentials (

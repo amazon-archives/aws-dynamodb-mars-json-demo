@@ -7,9 +7,8 @@
  * Service of the MSLImageExplorerApp. The service offers utility functions to 
  * access DynamoDB tables. 
  */
- angular.module('MSLImageExplorerApp').
-    service('MarsPhotosDBAccess', function ($log, ENV, AWS){
-    	var MarsPhotosDBAccess = {
+ angular.module('MSLImageExplorerApp').service('MarsPhotosDBAccess', function ($log, ENV, AWS){
+ 	var MarsPhotosDBAccess = {
  		/**
 		* Queries photos table with the date index and give the result
 		* to callback function. 
@@ -138,10 +137,12 @@
 		* List of instruments and its display names.
 		*/
 		instrumentList: {
-			'fcam': {id: 'fcam', name: 'Chemcam RMI'},
+			'fcam': {id: 'fcam', name: 'Front Hazcam'},
+			'ccam': {id: 'ccam', name: 'Chemcam RMI'},			
 			'mastcam_right': {id: 'mastcam_right', name: 'Right Mastcam'},
 			'mastcam_left': {id: 'mastcam_left', name: 'Left Mastcam'},
-			'mahli': {id: 'mahli', name: 'MAHLI'}
+			'mahli': {id: 'mahli', name: 'MAHLI'},
+			'mardi': {id: 'mardi', name: 'MARDI'}			
 		},
 
 		/**
@@ -175,36 +176,6 @@
 		AWS.dynamoDB.updateItem(params, callback);
 	};
 
-	/**
-	 * Gets cached thumbnail image from the local storage.
-	 * @param {String} imageid - The ID of the photo.
-	 * @return The thumbnail image data in base64 encoding if cached. Null is returned, otherwise.
-	 */
-	 var getCachedThumbnail = function(imageid) {
-	 	if(typeof localStorage === 'undefined'){
-	 		$log.warn('Local storage is not available.');
-	 		return null;
-	 	}
-	 	var cached = localStorage.getItem('thumbnails/' + imageid);
-	 	if(cached){
-	 		$log.debug('Loading thumbnail for ' + imageid + ' from cache');
-	 	}
-	 	return cached;
-	 };
-
-	/**
-	 * Stores thumbnail image into the local storage.
-	 * @param {Object} photo - The photo object that has imageid and thumbnail data.
-	 */
-	 var cacheThumbnail = function(photo) {
-	 	if(typeof localStorage === 'undefined'){
-	 		$log.warn('Local storage is not available.');
-	 		return;
-	 	}
-	 	$log.debug('Storing thumbnail for ' + photo.imageid);
-	 	localStorage.setItem('thumbnails/' + photo.imageid, photo.data);
-	 };
-
 	 var assertHashKey = function(queryParams){
 	 	if(!queryParams || typeof queryParams.hashKey === 'undefined'){
 	 		throw 'A required parameter, hash key is missing.';
@@ -226,12 +197,6 @@
 	 var assertFunction = function(callback){
 	 	if(typeof callback !== 'function'){
 	 		throw 'No valid callback function was given: ' + callback;
-	 	}
-	 };
-
-	 var assertObject = function(object){
-	 	if(typeof object !== 'object'){
-	 		throw 'Argument was not an object: ' + typeof(object);
 	 	}
 	 };
 

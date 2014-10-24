@@ -21,7 +21,8 @@ tables = [
                     {AttributeName: 'TimeStamp', KeyType: 'RANGE' }
                 ]
                 Projection:
-                    ProjectionType: 'ALL'
+                    ProjectionType: 'INCLUDE'
+                    NonKeyAttributes: [ 'url', 'time', 'instrument', 'votes', 'mission' ]
                 ProvisionedThroughput: 
                 	ReadCapacityUnits: nconf.get('READ_CAPACITY_PHOTOS')
                 	WriteCapacityUnits: nconf.get('WRITE_CAPACITY_PHOTOS')
@@ -33,7 +34,8 @@ tables = [
                     {AttributeName: 'votes', KeyType: 'RANGE' }
                 ]
                 Projection:
-                    ProjectionType: 'ALL'
+                    ProjectionType: 'INCLUDE'
+                    NonKeyAttributes: [ 'url', 'time', 'instrument', 'TimeStamp', 'mission' ]
                 ProvisionedThroughput: 
                 	ReadCapacityUnits: nconf.get('READ_CAPACITY_PHOTOS')
                 	WriteCapacityUnits: nconf.get('WRITE_CAPACITY_PHOTOS')

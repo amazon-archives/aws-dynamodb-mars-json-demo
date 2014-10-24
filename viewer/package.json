@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
-    "aws-sdk": "^2.0.19",
+    "aws-sdk": "^2.0.22",
+    "dynamodb-doc": "git://github.com/awslabs/dynamodb-document-js-sdk.git#4ee5768d3ec3fc036122d999f9e6749bba923d8c",
     "coffee-script": "^1.8.0",
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.2",
