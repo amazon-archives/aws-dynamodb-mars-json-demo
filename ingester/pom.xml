@@ -25,7 +25,7 @@
 	<properties>
 		<commons-cli.version>1.2</commons-cli.version>
 		<aws-java-sdk.version>1.9.0</aws-java-sdk.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<easymock.version>3.2</easymock.version>
 		<powermock.version>1.5</powermock.version>
 	</properties>
