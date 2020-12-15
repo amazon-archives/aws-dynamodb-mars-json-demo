@@ -1,3 +1,6 @@
+## Note
+This repository has been archived and may be deleted at any time. You have been warned.
+
 ## Features
 Easily store and index the images of Mars published by NASA Jet Propulsion Laboratory. This project includes a Java application for storing the data in DynamoDB or DynamoDB Local and a frontend web application for interacting with and display the images. Provides an example of how to store JSON data in DynamoDB using the low-level Java SDK and query data from DynamoDB using the DynamoDB Document SDK for JavaScript.
 
